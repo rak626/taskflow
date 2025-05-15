@@ -10,9 +10,9 @@ import java.util.UUID;
 
 public interface TodoRepo extends JpaRepository<Todo, UUID> {
 
-    @Query("SELECT t FROM Todo t WHERE t.userId = ?1")
+    @Query("SELECT t FROM Todo t WHERE t.user.id = ?1")
     Optional<List<Todo>> getTodosByUser(String userId);
 
-    @Query("SELECT t FROM Todo t WHERE t.id = ?1 AND t.userId = ?2")
+    @Query("SELECT t FROM Todo t WHERE t.id = ?1 AND t.user.id = ?2")
     Optional<Todo> getTodoByUser(String id, String userId);
 }

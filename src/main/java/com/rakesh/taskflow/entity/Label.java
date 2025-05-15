@@ -1,10 +1,7 @@
 package com.rakesh.taskflow.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class Label {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String name;
     private String color;
@@ -29,6 +26,7 @@ public class Label {
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
+    @ToString.Exclude
     @ManyToMany(mappedBy = "label")
     private Set<Todo> todos = new HashSet<>();
 }

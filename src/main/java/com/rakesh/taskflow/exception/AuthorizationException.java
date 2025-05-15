@@ -1,6 +1,6 @@
 package com.rakesh.taskflow.exception;
 
-public class AuthorizationException extends Throwable {
+public class AuthorizationException extends RuntimeException {
     public AuthorizationException(String message) {
         super(message);
     }

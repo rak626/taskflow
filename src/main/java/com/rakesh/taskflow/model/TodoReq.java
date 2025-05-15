@@ -1,19 +1,17 @@
 package com.rakesh.taskflow.model;
 
-import com.rakesh.taskflow.entity.Label;
 import com.rakesh.taskflow.util.enums.Priority;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 @Data
 public class TodoReq {
     private String title;
     private String description;
-    private Label label;
+    private String labelId;
     private Priority priority;
     private String userId;
     private String todoId;
-    private String status;
-    private LocalDateTime dueAt;
+    private ZonedDateTime dueAt;
 }
